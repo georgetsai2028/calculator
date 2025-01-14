@@ -34,7 +34,18 @@ function operate(choice)
         divide(num1, num2);
     }
 }
+//four container divs
+const mainContainer = document.getElementById("mainContainer");
+const calculatorContainer = document.getElementById("calculatorContainer");
+const calculatorResultContainer = document.getElementById("calculatorResult");
+const operaterButtonsContainer = document.getElementById("operatorButtons");
+const numberButtonContainer = document.getElementById("numberButtons");
+
 const firstNum = document.createElement("p")
+firstNum.style.textContent = "0";
 const secondNum = document.createElement("p")
+secondNum.style.textContent = "0";
+calculatorResultContainer.appendChild("firstNum");
+calculatorResultContainer.appendChild("secondNum");
 let operator;
 
