@@ -14,3 +14,6 @@ function divide(num1, num2)
 {
     return num1 / num2;
 }
+let num1;
+let num2;
+let operator;
