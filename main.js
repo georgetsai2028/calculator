@@ -60,22 +60,47 @@ calculatorResultContainer.style.marginRight = "10px";
 calculatorResultContainer.style.marginBottom = "20px";
 calculatorResultContainer.style.border = "4px solid black";
 calculatorResultContainer.textContent = "RESULTS";
+
+const buttonHolder= document.getElementById("buttonHolder")
+buttonHolder.style.display = "flex";
+buttonHolder.style.flexDirection = "row";
+buttonHolder.style.flexWrap = "nowrap";
+
 const operaterButtonsContainer = document.getElementById("operatorButtons");
 operaterButtonsContainer.style.display = "flex";
-operaterButtonsContainer.style.height = "50px";
+operaterButtonsContainer.style.height = "auto";
+operaterButtonsContainer.style.margin = "10px";
+operaterButtonsContainer.style.backgroundColor = "red";
+operaterButtonsContainer.style.flexDirection = "column";
+
+const operatorSymbolArr = ["/", "*", "-", "+", "="];
+
+    operatorSymbolArr.forEach(operatorSymbol => {
+        const operatorDiv = document.createElement("div")
+        operatorDiv.textContent = operatorSymbol;
+        operatorDiv.style.display = "flex";
+        operatorDiv.style.margin = "1px";
+        operatorDiv.style.height = "16px";
+        operatorDiv.style.padding = "16px";
+        operatorDiv.style.backgroundColor = "lightBlue";
+        operaterButtonsContainer.appendChild(operatorDiv);
+    });
+   
+
+
 const numberButtonContainer = document.getElementById("numberButtons");
 numberButtonContainer.style.display = "flex";
-numberButtonContainer.style.height = "50px";
+numberButtonContainer.style.height = "auto";
 numberButtonContainer.style.backgroundColor = "blue";
 numberButtonContainer.style.padding = "30px";
-numberButtonContainer.style.margin = "10px";
+numberButtonContainer.style.margin = "1px";
 numberButtonContainer.style.flexWrap = "wrap";
 for (let i = 0; i < 9; i++)
     {
         const numbersOneToNine = document.createElement("div");
         numbersOneToNine.textContent = i + 1;
-        numbersOneToNine.style.width = "25%";
-        numbersOneToNine.style.height = "25%";
+        numbersOneToNine.style.width = "16px";
+        numbersOneToNine.style.height = "16px";
         numbersOneToNine.style.padding = "16px";
         numbersOneToNine.style.display = "flex";
         numbersOneToNine.style.alignItems = "center";
