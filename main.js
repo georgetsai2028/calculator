@@ -129,13 +129,23 @@ zeroButton.style.border = "1px solid black";
 zeroButton.textContent = "0";
 zeroButton.style.fontSize = "16px";
 zeroButton.style.display = "flex";
-zeroButton.style.height = "16px";
+zeroButton.style.height = "100%";
+zeroButton.style.width = "100%";
+zeroButton.style.justifyContent = "center";
+zeroButton.style.alignItems = "center";
 zeroButton.style.backgroundColor = "lightGrey";
 zeroAndDecimalButtonContainer.appendChild(zeroButton);
+
+
 const decimalButton = document.createElement("div");
 decimalButton.style.display = "flex";
-decimalButton.style.padding = "16px";
 decimalButton.textContent = ".";
+decimalButton.style.border = "1px solid black";
+decimalButton.style.height = "100%"
+decimalButton.style.width = "100%";
+decimalButton.style.justifyContent = "center";
+decimalButton.style.alignItems = "center";
+decimalButton.style.backgroundColor = "lightGrey";
 zeroAndDecimalButtonContainer.appendChild(decimalButton);
 
 const firstNum = document.createElement("p")
