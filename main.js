@@ -83,7 +83,7 @@ const operatorSymbolArr = ["/", "*", "-", "+", "="];
         operatorDiv.style.height = "16px";
         operatorDiv.style.padding = "16px";
         operatorDiv.style.border = "1px solid black";
-        operatorDiv.style.backgroundColor = "lightBlue";
+        operatorDiv.style.backgroundColor = "lightGrey";
         operaterButtonsContainer.appendChild(operatorDiv);
     });
    
@@ -106,11 +106,37 @@ for (let i = 0; i < 9; i++)
         numbersOneToNine.style.height = "16px";
         numbersOneToNine.style.padding = "16px";
         numbersOneToNine.style.display = "flex";
+        numbersOneToNine.style.backgroundColor = "lightGrey";
         numbersOneToNine.style.border = "1px solid black";
         numbersOneToNine.style.alignItems = "center";
         numbersOneToNine.style.justifyContent = "center";
         numberButtonContainer.appendChild(numbersOneToNine);
     }
+
+const zeroAndDecimalButtonContainer = document.getElementById("zeroDecimalButton")
+{
+    zeroAndDecimalButtonContainer.style.display = "flex";
+    zeroAndDecimalButtonContainer.style.flexDirection = "row";
+    zeroAndDecimalButtonContainer.style.backgroundColor = "blue";
+    zeroAndDecimalButtonContainer.style.padding = "20px";
+    zeroAndDecimalButtonContainer.style.gap = "5px";
+    zeroAndDecimalButtonContainer.style.justifyContent = "spacedEvenly";
+    zeroAndDecimalButtonContainer.style.alignItems = "center";
+}
+
+const zeroButton = document.createElement("div");
+zeroButton.style.border = "1px solid black";
+zeroButton.textContent = "0";
+zeroButton.style.fontSize = "16px";
+zeroButton.style.display = "flex";
+zeroButton.style.height = "16px";
+zeroButton.style.backgroundColor = "lightGrey";
+zeroAndDecimalButtonContainer.appendChild(zeroButton);
+const decimalButton = document.createElement("div");
+decimalButton.style.display = "flex";
+decimalButton.style.padding = "16px";
+decimalButton.textContent = ".";
+zeroAndDecimalButtonContainer.appendChild(decimalButton);
 
 const firstNum = document.createElement("p")
 firstNum.style.textContent = "0";
