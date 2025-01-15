@@ -40,15 +40,42 @@ const mainContainer = document.getElementById("mainContainer");
 mainContainer.style.display = "flex";
 mainContainer.style.backgroundColor = "lightGrey";
 mainContainer.style.height = "70vh";
-mainContainer.style.width = "50vw"
-mainContainer.style.justifyContent = "center";
-mainContainer.style.alignItems = "center";
-const calculatorContainer = document.getElementById("calculatorContainer");
-calculatorContainer.style.display = "flex";
-calculatorContainer.style.backgroundColor = "lightPurple";
+mainContainer.style.width = "32vw";
+mainContainer.style.border = "5px solid black";
+const everythingHolder = document.getElementById("everythingHolder");
+everythingHolder.style.display = "flex";
+everythingHolder.style.flexGrow = "1";
+everythingHolder.style.backgroundColor = "purple";
+everythingHolder.style.height = "100%";
+everythingHolder.style.flexDirection = "column";
+
 const calculatorResultContainer = document.getElementById("calculatorResult");
+calculatorResultContainer.style.display = "flex";
+calculatorResultContainer.style.backgroundColor = "blue";
+calculatorResultContainer.style.height = "50px";
+calculatorResultContainer.style.padding = "20px";
+calculatorResultContainer.style.marginTop = "40px";
+calculatorResultContainer.style.marginLeft = "10px";
+calculatorResultContainer.style.marginRight = "10px";
+calculatorResultContainer.style.marginBottom = "20px";
+calculatorResultContainer.style.border = "4px solid black";
+calculatorResultContainer.textContent = "RESULTS";
 const operaterButtonsContainer = document.getElementById("operatorButtons");
+operaterButtonsContainer.style.display = "flex";
 const numberButtonContainer = document.getElementById("numberButtons");
+numberButtonContainer.style.display = "flex";
+
+for (let i = 0; i < 9; i++)
+    {
+        const numbersOneToNine = document.createElement("div");
+        numbersOneToNine.textContent = i + 1;
+        numbersOneToNine.style.width = "16px";
+        numbersOneToNine.style.height = "16px";
+        numbersOneToNinestyle.display = "flex";
+        numbersOneToNine.style.alignItems = "center";
+        numbersOneToNine.style.justifyContent = "center";
+        numberButtonContainer.appendChild(numbersOneToNine);
+    }
 
 const firstNum = document.createElement("p")
 firstNum.style.textContent = "0";
