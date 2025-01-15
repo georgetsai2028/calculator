@@ -70,7 +70,8 @@ const operaterButtonsContainer = document.getElementById("operatorButtons");
 operaterButtonsContainer.style.display = "flex";
 operaterButtonsContainer.style.height = "auto";
 operaterButtonsContainer.style.margin = "10px";
-operaterButtonsContainer.style.backgroundColor = "red";
+operaterButtonsContainer.style.gap = "10px";
+operaterButtonsContainer.style.backgroundColor = "blue";
 operaterButtonsContainer.style.flexDirection = "column";
 
 const operatorSymbolArr = ["/", "*", "-", "+", "="];
@@ -79,9 +80,9 @@ const operatorSymbolArr = ["/", "*", "-", "+", "="];
         const operatorDiv = document.createElement("div")
         operatorDiv.textContent = operatorSymbol;
         operatorDiv.style.display = "flex";
-        operatorDiv.style.margin = "1px";
         operatorDiv.style.height = "16px";
         operatorDiv.style.padding = "16px";
+        operatorDiv.style.border = "1px solid black";
         operatorDiv.style.backgroundColor = "lightBlue";
         operaterButtonsContainer.appendChild(operatorDiv);
     });
@@ -95,6 +96,8 @@ numberButtonContainer.style.backgroundColor = "blue";
 numberButtonContainer.style.padding = "30px";
 numberButtonContainer.style.margin = "1px";
 numberButtonContainer.style.flexWrap = "wrap";
+numberButtonContainer.style.marginLeft = "5px";
+numberButtonContainer.style.gap = "5px";
 for (let i = 0; i < 9; i++)
     {
         const numbersOneToNine = document.createElement("div");
@@ -103,6 +106,7 @@ for (let i = 0; i < 9; i++)
         numbersOneToNine.style.height = "16px";
         numbersOneToNine.style.padding = "16px";
         numbersOneToNine.style.display = "flex";
+        numbersOneToNine.style.border = "1px solid black";
         numbersOneToNine.style.alignItems = "center";
         numbersOneToNine.style.justifyContent = "center";
         numberButtonContainer.appendChild(numbersOneToNine);
