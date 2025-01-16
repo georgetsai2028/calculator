@@ -34,6 +34,7 @@ mainContainer.style.backgroundColor = "lightGrey";
 mainContainer.style.height = "70vh";
 mainContainer.style.width = "32vw";
 mainContainer.style.border = "5px solid black";
+
 const everythingHolder = document.getElementById("everythingHolder");
 everythingHolder.style.display = "flex";
 everythingHolder.style.flexGrow = "1";
@@ -44,14 +45,15 @@ everythingHolder.style.flexDirection = "column";
 const calculatorResultContainer = document.getElementById("calculatorResult");
 calculatorResultContainer.style.display = "flex";
 calculatorResultContainer.style.backgroundColor = "blue";
-calculatorResultContainer.style.height = "50px";
 calculatorResultContainer.style.padding = "20px";
 calculatorResultContainer.style.marginTop = "40px";
 calculatorResultContainer.style.marginLeft = "10px";
 calculatorResultContainer.style.marginRight = "10px";
 calculatorResultContainer.style.marginBottom = "20px";
 calculatorResultContainer.style.border = "4px solid black";
-calculatorResultContainer.textContent = "RESULTS";
+calculatorResultContainer.style.justifyContent = "flex-end";
+calculatorResultContainer.style.alignItems = "center";
+calculatorResultContainer.style.fontSize = "28px";
 
 const buttonHolder= document.getElementById("buttonHolder")
 buttonHolder.style.display = "flex";
@@ -72,6 +74,7 @@ const operatorSymbolArr = ["/", "*", "-", "+", "="];
     operatorSymbolArr.forEach(operatorSymbol => {
         const operatorDiv = document.createElement("div")
         operatorDiv.textContent = operatorSymbol;
+        operatorDiv.classList.add("button");
         operatorDiv.style.display = "flex";
         operatorDiv.style.height = "16px";
         operatorDiv.style.padding = "16px";
@@ -100,17 +103,20 @@ for (let i = 0; i < 9; i++)
         numbersOneToNine.style.height = "16px";
         numbersOneToNine.style.padding = "16px";
         numbersOneToNine.style.display = "flex";
+        numbersOneToNine.classList.add("button");
         numbersOneToNine.style.backgroundColor = "lightGrey";
         numbersOneToNine.style.border = "1px solid black";
         numbersOneToNine.style.alignItems = "center";
         numbersOneToNine.style.justifyContent = "center";
         numberButtonContainer.appendChild(numbersOneToNine);
         numbersOneToNine.addEventListener("click", () => {
-            calculatorResultContainer.textContent = numbersOneToNine[i];
+            calculatorResultContainer.textContent += numbersOneToNine.textContent;
+            firstNum = numbersOneToNine;
         })
     }
     const zeroButton = document.createElement("div");
     zeroButton.style.border = "1px solid black";
+    zeroButton.classList.add("button");
     zeroButton.textContent = "0";
     zeroButton.style.fontSize = "16px";
     zeroButton.style.display = "flex";
@@ -121,9 +127,13 @@ for (let i = 0; i < 9; i++)
     zeroButton.style.alignItems = "center";
     zeroButton.style.backgroundColor = "lightGrey";
     numberButtonContainer.appendChild(zeroButton);
+    zeroButton.addEventListener("click", () => {
+        calculatorResultContainer.textContent += zeroButton.textContent;
+    })
 
     const decimalButton = document.createElement("div");
     decimalButton.style.display = "flex";
+    decimalButton.classList.add("button");
     decimalButton.textContent = ".";
     decimalButton.style.border = "1px solid black";
     decimalButton.style.height = "16px"
@@ -133,6 +143,9 @@ for (let i = 0; i < 9; i++)
     decimalButton.style.alignItems = "center";
     decimalButton.style.backgroundColor = "lightGrey";
     numberButtonContainer.appendChild(decimalButton);
+    decimalButton.addEventListener("click", () => {
+        calculatorResultContainer.textContent += decimalButton.textContent;
+    })
 
 
 
