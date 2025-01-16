@@ -24,9 +24,9 @@ function divide(num1, num2)
     return num1 / num2;
 }
 
-function operate(operator, num1, num2)
+function operate(operatorSymbol, num1, num2)
 {
-    switch (operator)
+    switch (operatorSymbol)
     {
     case "+" : return add(num1, num2);
     case "-" : return subtract(num1, num2);
@@ -60,7 +60,7 @@ function numberButtonClick(value)
     }
 }
 
-function operatorButtonClick(op)
+function operatorButtonClick(operatorSymbol)
 {
     if (num1 !== null && num2 !== null)
     {
@@ -68,7 +68,7 @@ function operatorButtonClick(op)
         calculatorResultContainer.textContent = num1;
         num2 = null;
     }
-    operator = op;
+    operator = operatorSymbol;
     resetDisplay = true;
 }
 
@@ -191,7 +191,7 @@ for (let i = 1; i <= 9; i++)
     zeroButton.style.alignItems = "center";
     zeroButton.style.backgroundColor = "lightGrey";
     numberButtonContainer.appendChild(zeroButton);
-    zeroButton.addEventListener("click", () => numberButtonClick(zeroButton));
+    zeroButton.addEventListener("click", () => numberButtonClick(zeroButton.textContent));
 
     const decimalButton = document.createElement("div");
     decimalButton.style.display = "flex";
@@ -205,4 +205,4 @@ for (let i = 1; i <= 9; i++)
     decimalButton.style.alignItems = "center";
     decimalButton.style.backgroundColor = "lightGrey";
     numberButtonContainer.appendChild(decimalButton);
-    decimalButton.addEventListener("click", () => numberButtonClick(decimalButton));
+    decimalButton.addEventListener("click", () => numberButtonClick(decimalButton.textContent));
