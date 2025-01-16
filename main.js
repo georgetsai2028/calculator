@@ -1,3 +1,8 @@
+let num1 = null;
+let num2 = null;
+let operator = null;
+let resetDisplay = false;
+
 function add(num1, num2)
 {
     return num1 + num2;
@@ -12,21 +17,60 @@ function multiply(num1, num2)
 }
 function divide(num1, num2)
 {
+    if (num2 == 0)
+    {
+        return "ERROR: CAN'T DIVIDE BY 0";
+    }
     return num1 / num2;
 }
 
-function operate(choice, num1, num2)
+function operate(operator, num1, num2)
 {
-    switch (choice)
+    switch (operator)
     {
-    case 0 : return add(num1, num2);
-    case 1 : return subtract(num1, num2);
-    case 2 : return multiply(num1, num2);
-    case 3 : return divide(num1, num2);
+    case "+" : return add(num1, num2);
+    case "-" : return subtract(num1, num2);
+    case "*" : return multiply(num1, num2);
+    case "/" : return divide(num1, num2);
     default : return "Invalid Choice";
     }
 }
+//updates the display
+function updateDisplay(value)
+{
+    if (resetDisplay)
+    {
+        calculatorResultContainer.textContent = "";
+        resetDisplay = false;
+    }
+    calculatorResultContainer.textContent += value;
+}
 
+//handles number button clicks
+function numberButtonClick(value)
+{
+    updateDisplay(value);
+    if (operator == null)
+    {
+        num1 = parseFloat(calculatorResultContainer.textContent)
+    }
+    else 
+    {
+        num2 = parseFloat(calculatorResultContainer.textContent)
+    }
+}
+
+function operatorButtonClick(op)
+{
+    if (num1 !== null && num2 !== null)
+    {
+        num1 = operate(operator, num1, num2);
+        calculatorResultContainer.textContent = num1;
+        num2 = null;
+    }
+    operator = op;
+    resetDisplay = true;
+}
 //four container divs
 const mainContainer = document.getElementById("mainContainer");
 mainContainer.style.display = "flex";
@@ -34,6 +78,7 @@ mainContainer.style.backgroundColor = "lightGrey";
 mainContainer.style.height = "70vh";
 mainContainer.style.width = "32vw";
 mainContainer.style.border = "5px solid black";
+
 
 const everythingHolder = document.getElementById("everythingHolder");
 everythingHolder.style.display = "flex";
@@ -81,6 +126,13 @@ const operatorSymbolArr = ["/", "*", "-", "+", "="];
         operatorDiv.style.border = "1px solid black";
         operatorDiv.style.backgroundColor = "lightGrey";
         operaterButtonsContainer.appendChild(operatorDiv);
+        
+        //allows operators to be usable
+        operatorDiv.addEventListener("click", () =>
+        {
+            const result = operate(choice,num1,num2);
+            calculatorResultContainer.textContent = result;
+        })
     });
    
 
@@ -146,14 +198,3 @@ for (let i = 0; i < 9; i++)
     decimalButton.addEventListener("click", () => {
         calculatorResultContainer.textContent += decimalButton.textContent;
     })
-
-
-
-const firstNum = document.createElement("p")
-firstNum.style.textContent = "0";
-const secondNum = document.createElement("p")
-secondNum.style.textContent = "0";
-calculatorResultContainer.appendChild(firstNum);
-calculatorResultContainer.appendChild(secondNum);
-let operator;
-
