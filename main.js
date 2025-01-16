@@ -15,23 +15,15 @@ function divide(num1, num2)
     return num1 / num2;
 }
 
-function operate(choice)
+function operate(choice, num1, num2)
 {
-    if (choice == 0)
+    switch (choice)
     {
-        add(num1, num2);
-    }
-    else if (choice == 1)
-    {
-        subtract(num1, num2);
-    }
-    else if (choice == 2)
-    {
-        multiply(num1, num2);
-    }
-    else if (choice == 3)
-    {
-        divide(num1, num2);
+    case 0 : return add(num1, num2);
+    case 1 : return subtract(num1, num2);
+    case 2 : return multiply(num1, num2);
+    case 3 : return divide(num1, num2);
+    default : return "Invalid Choice";
     }
 }
 
@@ -45,7 +37,7 @@ mainContainer.style.border = "5px solid black";
 const everythingHolder = document.getElementById("everythingHolder");
 everythingHolder.style.display = "flex";
 everythingHolder.style.flexGrow = "1";
-everythingHolder.style.backgroundColor = "purple";
+everythingHolder.style.backgroundColor = "lightGrey";
 everythingHolder.style.height = "100%";
 everythingHolder.style.flexDirection = "column";
 
@@ -68,10 +60,11 @@ buttonHolder.style.flexWrap = "nowrap";
 
 const operaterButtonsContainer = document.getElementById("operatorButtons");
 operaterButtonsContainer.style.display = "flex";
-operaterButtonsContainer.style.height = "auto";
 operaterButtonsContainer.style.margin = "10px";
 operaterButtonsContainer.style.gap = "10px";
+operaterButtonsContainer.style.padding = "10px";
 operaterButtonsContainer.style.backgroundColor = "blue";
+operaterButtonsContainer.style.border = "5px solid black";
 operaterButtonsContainer.style.flexDirection = "column";
 
 const operatorSymbolArr = ["/", "*", "-", "+", "="];
@@ -98,6 +91,7 @@ numberButtonContainer.style.margin = "1px";
 numberButtonContainer.style.flexWrap = "wrap";
 numberButtonContainer.style.marginLeft = "5px";
 numberButtonContainer.style.gap = "5px";
+numberButtonContainer.style.border = "5px solid black";
 for (let i = 0; i < 9; i++)
     {
         const numbersOneToNine = document.createElement("div");
@@ -111,6 +105,9 @@ for (let i = 0; i < 9; i++)
         numbersOneToNine.style.alignItems = "center";
         numbersOneToNine.style.justifyContent = "center";
         numberButtonContainer.appendChild(numbersOneToNine);
+        numbersOneToNine.addEventListener("click", () => {
+            calculatorResultContainer.textContent = numbersOneToNine[i];
+        })
     }
     const zeroButton = document.createElement("div");
     zeroButton.style.border = "1px solid black";
